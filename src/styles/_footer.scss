@@ -1,0 +1,26 @@
+@use 'variaveis';
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.9);
+
+    &__info {
+        font-size: 0.9rem;
+    }
+
+    &__social{
+        &__item {
+            color: variaveis.$secondary-color;
+            margin-left: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+                color: variaveis.$primary-color
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@use 'hero';
+@use 'variaveis';
+@use 'header';
+@use 'footer';
+@use 'trailer';
+
+// Reset 
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: variaveis.$font-family;
+    color: variaveis.$secondary-color;
+    background-color: #000;
+    line-height: 1.6;
+}

@@ -1,0 +1,36 @@
+@use 'variaveis';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.8);
+
+    &__logo img {
+        max-width: 50px;
+    }
+
+    &__nav {
+        &__list {
+            display: flex;
+            gap: 20px;
+        }
+    }
+
+    &__item{
+        list-style: none;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: variaveis.$secondary-color;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+
+        &:hover {
+            color: variaveis.$primary-color;
+        }
+    }
+    
+}
