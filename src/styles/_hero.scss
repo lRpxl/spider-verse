@@ -1,58 +1,99 @@
 @use 'variaveis';
 
 .hero {
-    position: relative;
-    height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: row; // Por padrão, os elementos ficarão lado a lado (para telas maiores)
     align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    &__background {
+      width: 50%; // 50% da largura da tela em telas grandes
+    height: auto;
     text-align: center;
 
-    &__background{
-        position: block;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hiddem;
-        z-index: -1;
-
-        &__image{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.5;
-        }
+    & .hero__image {
+        max-width: 100%; // A imagem não vai ultrapassar o tamanho do container
+        width: 60%; // Faz com que a imagem ocupe 100% do container
+        height: auto; // Mantém a proporção da imagem
+    }
     }
 
     &__content {
-        z-index: 1;
-        max-width: 800px;
-        padding: 20px;
-    }
+      width: 50%; // 50% da largura da tela em telas grandes
+    text-align: left;
+    padding: 20px;
+}
 
     &__title {
-        font-size: 3rem;
+        font-size: 2rem;
+        margin-bottom: 10px;
         color: variaveis.$primary-color;
+
+        & span {
+        display: block;
+        font-size: 1.5rem;
+        color: variaveis.$primary-color #EA2027;
+        }
     }
 
     &__description {
-        font-size: 1.5rem;
-        margin: 20px 0;
-
+        font-size: 1.2rem;
+        margin-bottom: 20px;
     }
 
     &__button {
-        padding: 15px 30px;
-        background-color: variaveis.$primary-color;
-        color: variaveis.$secondary-color;
+        border-radius: 8px;
         text-decoration: none;
-        font-size: 1.2rem;
-        border-radius: 5px;
-        transition: background-color 0.3s;
+        color: #fff;
+        background-color: variaveis.$primary-color;
+        padding: 16px;
 
         &:hover {
-            background-color: darken(variaveis.$primary-color, 10%);
+            color: darken(variaveis.$secondary-color, 10%);
         }
     }
 }
+
+@media (max-width: 768px) {
+    .hero{
+        display: flex;
+        flex-direction:column; // Muda para empilhar os elementos verticalmente
+        padding: 15px;
+        &__background,
+        &__content {
+          width: 100%; // Ocupa 100% da tela em telas menores
+        }
+        
+        &__background {
+          margin-bottom: 20px; // Adiciona espaço entre a imagem e o conteúdo no mobile
+        }
+        
+        & .hero__image {
+          max-width: 100%; // Garante que a imagem não ultrapasse o tamanho da tela
+          height: auto; // Mantém a proporção da imagem
+        }
+        
+        &__content {
+          text-align: center; // Centraliza o texto em telas menores
+        padding: 15px;
+        
+        &__title {
+            font-size: 1.8rem;
+        }
+        
+        &__description {
+            font-size: 1rem;
+        }
+        
+        &__button {
+            padding: 8px 16px;
+        }
+        }
+    }
+
+}
+
+
+
+
